@@ -1,20 +1,20 @@
-import math
+import requests
 
-print("Введите коэффициенты для уравнение")
-print("ax^2 + bx + c = 0:")
-a = float(input("a = "))
-b = float(input("b = "))
-c = float(input("c = "))
+s_city = "Moscow,Ru"
+appid = "332355b9935e45954294ed750ab961f2"
+res = requests.get("http://api.openweathermap.org/data/2.5/weather",
+                   params={'q': s_city, 'units': 'metric', 'lang': 'ru', 'APPID': appid})
+data = res.json()
+print("Город:", s_city)
+print("Погодные условия:", data['weather'][0]['description'])
+print("Температура:", data['main']['temp'])
+print("Минимальная температура:", data['main']['temp_min'])
+print("Максимальная температура", data['main']['temp_max'])
 
-discr = b ** 2 - 4 * a * c
-print("Дискриминант D = %.2f" % discr)
-
-if discr > 0:
-    x1 = (-b + math.sqrt(discr)) / (2 * a)
-    x2 = (-b - math.sqrt(discr)) / (2 * a)
-    print("x1 = %.2f \nx2 = %.2f" % (x1, x2))
-elif discr == 0:
-    x = -b / (2 * a)
-    print ("x = %.2f" % x)
-else:
-    print("Корней нет")
+res = requests.get("http://api.openweathermap.org/data/2.5/forecast",
+                   params={'q': s_city, 'units': 'metric', 'lang': 'ru', 'APPID': appid})
+data = res.json()
+print("Прогноз погоды на неделю:")
+for i in data['list']:
+    print("Дата <", i['dt_txt'], "> \r\nТемпература <", '{0:+3.0f}'.format(i['main']['temp']), "> \r\nПогодные условия <", i['weather'][0]['description'], ">")
+    print("____________________________")
