@@ -1,0 +1,26 @@
+CREATE TABLE faculty ( id serial PRIMARY KEY, nname varchar (55) NOT NULL, decanat varchar (120) NOT NULL ); 
+CREATE TABLE student_group ( id serial PRIMARY KEY, nname varchar (70) NOT NULL, faculty varchar (120) NOT NULL, fk_groupa_faculty int REFERENCES faculty (id) ); 
+CREATE TABLE stutents ( id serial PRIMARY KEY, naame varchar (150) NOT NULL, passport int NOT NULL, student_group varchar (50) NOT NULL, fk_Students_Groupa int REFERENCES student_group(id) );
+
+INSERT INTO Faculty (nname, decanat) VALUES ('Математическая кибернетики и информационные технологии', 'Информационыые технологии'); 
+INSERT INTO Faculty (nname, decanat) VALUES ('Сети связи и системы коммутации', 'Сети и системы связи'); 
+INSERT INTO Groupa (nname, faculty, fk_Groupa_Faculty) VALUES ('И1', 'Информационные технилогии', 1); 
+INSERT INTO Groupa (nname, faculty, fk_Groupa_Faculty) VALUES ('И2', 'Информационные технилогии', 1); 
+INSERT INTO Groupa (nname, faculty, fk_Groupa_Faculty) VALUES ('СССК1', 'Сети связи и сестемы коммутации', 2);
+INSERT INTO Groupa (nname, faculty, fk_Groupa_Faculty) VALUES ('СССК2', 'Сети свяхи и системы коммутации', 2); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Николаев А.А.', 1111, 'И1', 1); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Васильева М.В.', 2222, 'И1', 1); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Клюев А.Ю.', 3333, 'И1', 1); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Блинов Л.В.', 4444, 'И1', 1); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Дружинин С.А.', 5555, 'И1', 1); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Вишневская М.Е.', 6666, 'И2', 2); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Шилова К.И.', 7777, 'И2', 2); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Степанов И.А.', 8888, 'И2', 2);
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Наумов А.М.', 9999, 'И2', 2); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Богданов К.Т.', 1234, 'И2', 2); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Кулешова Е.М.', 0123, 'СССК1', 3); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Золотарева Д.Г..', 5678, 'СССК1', 3); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Копылова Е.И.', 1546, 'СССК1', 3); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Соболев Д.О.', 3481, 'СССК1', 3); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Тарбаев Д.Д.', 4281, 'СССК1', 3); 
+INSERT INTO Students (naame, passport, groupa, fk_Students_Groupa) VALUES ('Гришин А.Д.', 5648, 'СССК2', 4);
