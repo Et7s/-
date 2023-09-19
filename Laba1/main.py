@@ -1,5 +1,5 @@
 import math
-print("f333333f")
+print("fasfasdfasf")
 print("Введите коэффициенты ")
 print("ax^2 + bx + c = 0:")
 q = float(input("a = "))
