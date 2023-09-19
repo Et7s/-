@@ -1,5 +1,5 @@
 import math
-
+print("fasfasdfasf")
 print("Введите коэффициенты ")
 print("ax^2 + bx + c = 0:")
 q = float(input("a = "))
@@ -18,3 +18,4 @@ elif v == 0:
     print ("x = %.2f" % x)
 else:
     print("Нет корней")
+    print("Попробуй еще раз")
