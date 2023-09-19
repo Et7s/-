@@ -10,7 +10,6 @@ print("Погодные условия:", data['weather'][0]['description'])
 print("Температура:", data['main']['temp'])
 print("Минимальная температура:", data['main']['temp_min'])
 print("Максимальная температура", data['main']['temp_max'])
-print("Что-то пошло не так")
 
 res = requests.get("http://api.openweathermap.org/data/2.5/forecast",
                    params={'q': s_city, 'units': 'metric', 'lang': 'ru', 'APPID': appid})
